@@ -20,7 +20,7 @@ font-end:
 	cd jax-ui && rm -rf dist && yarn install && yarn build
 
 .PHONY: unpack-jax
-unpack-jax: package font-end
+unpack-jax: package
 	mkdir -p tmp && rm -f tmp/jax-*.tar.gz && ls jax-web/target/jax-*.tar.gz | head -1 | xargs -I {} mv {} tmp
 	rm -rf tmp/jax && tar -zxf tmp/jax-*.tar.gz -C tmp/ && rm -f tmp/jax-*.tar.gz && mkdir -p tmp/jax/jax/work && mkdir -p tmp/jax/jax/jar_dir && mkdir -p tmp/jax/jax/jar_lib && mkdir -p tmp/jax/jax/jar_tmp
 	rm -rf tmp/jax/jax/jar_lib/ && mkdir -p tmp/jax/jax/jar_lib/flink && mkdir -p tmp/jax/jax/jar_lib/spark
